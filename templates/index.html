@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charlotte Weather Data Hub</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Ventusky Live Weather Map (Top Section) -->
+        <div class="card full-width">
+            <h2>🌍 Charlotte Live Weather Map</h2>
+            <p>This map displays real-time temperature, wind, and precipitation for Charlotte. Click below to open it in a new tab and explore full features like date selection for historical views.</p>
+            <a href="https://www.ventusky.com/?p=35.26;-80.76;8&l=temperature-2m" target="_blank">
+                <div style="display:block!important;position:relative!important;max-width:100%!important;margin:auto!important;padding:0!important;border:0!important">
+                    <div style="display:block!important;position:relative!important;width:100%!important;height:0!important;box-sizing:content-box!important;padding:0 0 56.25%!important">
+                        <iframe src="https://embed.ventusky.com/?p=35.26;-80.76;8&l=temperature-2m&pin=35.26;-80.76;dot;Charlotte"
+                            style="display:block!important;position:absolute!important;left:0!important;top:0!important;width:100%!important;height:100%!important;border:0!important;"
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Left Column: Monthly Weather Charts -->
+        <div class="card">
+            <h2>📊 Monthly Weather Chart</h2>
+            <form id="chartForm">
+                <label for="year">Year:</label>
+                <input type="number" id="year" name="year" value="2024" min="2000" max="2030">
+                <label for="month">Month:</label>
+                <select id="month" name="month">
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                    <!-- Add all months -->
+                    <option value="12">December</option>
+                </select>
+                <button type="submit">Generate Chart</button>
+            </form>
+            <canvas id="weatherChart"></canvas>
+            <button onclick="downloadChart()">Download PDF</button>
+        </div>
+
+        <!-- Right Column: Historical Map Loader -->
+        <div class="card">
+            <h2>🗺️ View Historic Weather</h2>
+            <p>You can use the Ventusky map above and select a past date using their playbar or calendar option.</p>
+            <p>Or explore climate archives below for additional verified data.</p>
+        </div>
+
+        <!-- Full-width Footer Card: Trusted Data Sources -->
+        <div class="card full-width">
+            <h2>📂 Trusted Weather Data Sources</h2>
+            <ul>
+                <li><a href="https://www.ncei.noaa.gov/" target="_blank">NOAA National Centers for Environmental Information (NCEI)</a></li>
+                <li><a href="https://www.weather.gov/" target="_blank">National Weather Service</a></li>
+                <li><a href="https://climate.nasa.gov/vital-signs/global-temperature/" target="_blank">NASA Climate Change Data</a></li>
+                <li><a href="https://www.ventusky.com" target="_blank">Ventusky Interactive Weather Maps</a></li>
+                <li><a href="https://www.wunderground.com/history" target="_blank">Weather Underground Historical Data</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/static/scripts.js"></script>
+</body>
+</html>
